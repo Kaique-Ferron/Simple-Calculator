@@ -1,0 +1,1 @@
+# um projeto onde  criaremos uma simples calculadora para praticarREADME.md
