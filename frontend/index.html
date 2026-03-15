@@ -1,11 +1,70 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Calculadora</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        
+    </style>
 </head>
 <body>
-    
+
+    <div class="calculadora">
+        <input type="text" id="visor" disabled placeholder="0">
+        <div class="botoes">
+            <button class="btn-operacao" onclick="limpar()">C</button>
+            <button class="btn-operacao" onclick="apagar()">DEL</button>
+            <button class="btn-operacao" onclick="digitar('/')">/</button>
+            <button class="btn-operacao" onclick="digitar('*')">*</button>
+            
+            <button onclick="digitar('7')">7</button>
+            <button onclick="digitar('8')">8</button>
+            <button onclick="digitar('9')">9</button>
+            <button class="btn-operacao" onclick="digitar('-')">-</button>
+            
+            <button onclick="digitar('4')">4</button>
+            <button onclick="digitar('5')">5</button>
+            <button onclick="digitar('6')">6</button>
+            <button class="btn-operacao" onclick="digitar('+')">+</button>
+            
+            <button onclick="digitar('1')">1</button>
+            <button onclick="digitar('2')">2</button>
+            <button onclick="digitar('3')">3</button>
+            
+            <button class="btn-igual" onclick="calcular()">=</button>
+            
+            <button class="btn-zero" onclick="digitar('0')">0</button>
+            <button onclick="digitar('.')">.</button>
+        </div>
+    </div>
+
+    <script>
+        /* LÓGICA (JAVASCRIPT) */
+        const visor = document.getElementById('visor');
+
+        function digitar(valor) {
+            if (visor.value === '0') visor.value = '';
+            visor.value += valor;
+        }
+
+        function limpar() {
+            visor.value = '';
+        }
+
+        function apagar() {
+            visor.value = visor.value.slice(0, -1);
+        }
+
+        function calcular() {
+            try {
+                // eval faz a conta matemática baseada no texto do visor
+                visor.value = eval(visor.value);
+            } catch {
+                visor.value = "Erro";
+            }
+        }
+    </script>
+
 </body>
 </html>
