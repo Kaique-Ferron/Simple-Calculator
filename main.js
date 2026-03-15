@@ -12,6 +12,7 @@ function createWindow() {
   });
 
   const indexPath = path.resolve(__dirname, 'frontend', 'index.html');
+        win.loadFile(path.join(__dirname, 'frontend', 'index.html'));
   
   win.loadFile(indexPath).catch(err => {
     console.error("Erro ao carregar o HTML:", err);
